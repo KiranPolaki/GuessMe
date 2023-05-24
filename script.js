@@ -32,7 +32,7 @@ document.querySelector(".check").addEventListener("click", function () {
     document.querySelector(".number").textContent = secretNumber;
     document.querySelector(".number").style.width = "30rem";
     document.querySelector("body").style.backgroundColor = "#60b347";
-    if(score>highscore){
+    if(score>highScore){
       highScore = score;
       document.querySelector(".highscore").textContent = highScore;
     }
