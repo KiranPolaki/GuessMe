@@ -7,6 +7,7 @@ console.log(document.querySelector(".guess").value);*/
 
 let secretNumber = Math.floor(Math.random() * 20) + 1;
 let score = 20;
+let highScore = 0;
 
 function wrongAnswer() {
   let active = document.querySelector("body");
@@ -19,7 +20,6 @@ function wrongAnswer() {
 document.querySelector(".check").addEventListener("click", function () {
   const guess = Number(document.querySelector(".guess").value);
   let message = document.querySelector(".message");
-  const highScore = 0;
 
   if (score == 1) {
     document.querySelector("body").style.backgroundColor = "darkred";
@@ -32,8 +32,10 @@ document.querySelector(".check").addEventListener("click", function () {
     document.querySelector(".number").textContent = secretNumber;
     document.querySelector(".number").style.width = "30rem";
     document.querySelector("body").style.backgroundColor = "#60b347";
-    highScore = score;
-    document.querySelector(".highscore").textContent = highScore;
+    if(score>highscore){
+      highScore = score;
+      document.querySelector(".highscore").textContent = highScore;
+    }
   } else if (guess > secretNumber) {
     if (score > 1) {
       message.textContent = "📈 Tooo High!";
